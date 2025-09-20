@@ -1,10 +1,12 @@
 import express, { Request, Response } from "express";
 import { ServicesInit } from "./services/servicesInit.js";
-import { Config } from "./data/config.js";
+import { getConfig } from "./services/config.js";
 
 const app = express();
 
-const config: Config = ServicesInit();
+ServicesInit();
+
+const config = getConfig();
 
 // Middleware for JSON parsing
 app.use(express.json());
