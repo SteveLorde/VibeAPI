@@ -34,3 +34,7 @@ export function getConfig() {
 
   return config;
 }
+
+export function getAppRoot() {
+  return appRoot;
+}

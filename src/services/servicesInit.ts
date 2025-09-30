@@ -1,7 +1,7 @@
-import { initClipsFolder } from "./initClipsFolder.js";
+import { InitClipsFolder } from "./clips.js";
 import { initConfig } from "./config.js";
 
 export function ServicesInit() {
-  initClipsFolder();
+  InitClipsFolder();
   initConfig();
 }
