@@ -1,9 +1,13 @@
 const logger = console;
 
 export function log(message: string) {
-  logger.log(message);
+  const time = new Date().toLocaleTimeString();
+
+  logger.log(time + " " + message);
 }
 
 export function error(message: string) {
-  logger.error(message);
+  const time = new Date().toLocaleTimeString();
+
+  logger.error(time + " " + message);
 }

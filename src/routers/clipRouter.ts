@@ -2,6 +2,7 @@ import { Router } from "express";
 import path from "node:path";
 import { getAppRoot, getConfig } from "../services/config.js";
 import fs from "node:fs";
+import { log } from "../services/logger.js";
 
 const clipRouter = Router();
 
@@ -23,4 +24,6 @@ clipRouter.get("/:clipId", (req, res) => {
   }
 
   res.sendFile(clipPath);
+
+  log(`Served Clip: {clipId}`);
 });
