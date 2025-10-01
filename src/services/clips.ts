@@ -5,8 +5,10 @@ import { getAppRoot } from "./config.js";
 export function InitClipsFolder() {
   const appRoot = getAppRoot();
 
-  if (!fs.existsSync(path.join(appRoot, "storage", "clips"))) {
-    fs.mkdirSync(path.join(appRoot, "storage", "clips"));
+  const clipsDir = path.join(appRoot, "storage", "clips");
+
+  if (!fs.existsSync(clipsDir)) {
+    fs.mkdirSync(clipsDir, { recursive: true });
     console.log("Clips folder created");
     return;
   }
