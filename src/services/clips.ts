@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { getAppRoot } from "./config.js";
+import { log } from "./logger.js";
+import { seedData } from "../data/seed.js";
 
 export function InitClipsFolder() {
   const appRoot = getAppRoot();
@@ -9,11 +11,21 @@ export function InitClipsFolder() {
 
   if (!fs.existsSync(clipsDir)) {
     fs.mkdirSync(clipsDir, { recursive: true });
-    console.log("Clips folder created");
+    log("Clips folder created");
+
+    for (let i = 0; i < seedData.length; i++) {
+      const clip = seedData[i];
+      if (clip) {
+        fs.mkdirSync(path.join(clipsDir, clip.id), { recursive: true });
+      } else {
+        return;
+      }
+    }
+
     return;
   }
 
-  console.log("Clips folder found");
+  log("Clips folder found");
 }
 
 export function UploadClip(clipFile: any) {}
