@@ -11,7 +11,6 @@ export function InitClipsFolder() {
 
   if (!fs.existsSync(clipsDir)) {
     fs.mkdirSync(clipsDir, { recursive: true });
-    log("Clips folder created");
 
     for (let i = 0; i < seedData.length; i++) {
       const clip = seedData[i];
@@ -28,4 +27,4 @@ export function InitClipsFolder() {
   log("Clips folder found");
 }
 
-export function UploadClip(clipFile: any) {}
+export function SaveClip(clipFile: any) {}
